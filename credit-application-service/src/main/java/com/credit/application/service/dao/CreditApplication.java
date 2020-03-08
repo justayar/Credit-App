@@ -48,4 +48,9 @@ public class CreditApplication {
     public void setLastApplicationResultDate(Timestamp lastApplicationResultDate) {
         this.lastApplicationResultDate = lastApplicationResultDate;
     }
+
+    @Override
+    public String toString(){
+        return "{ identityNumber: "+identityNumber+" isApplicationSuccessful: "+isApplicationSuccessful+" creditLimit: "+creditLimit+" lastApplicationResultDate: "+lastApplicationResultDate;
+    }
 }
