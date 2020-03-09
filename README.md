@@ -6,7 +6,7 @@ This application is a simple design of credit application service.
 
 For building and running the application you need:
 
-- [JDK 1.10](https://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html)
+- [JDK 1.11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
 - [Maven 4](https://maven.apache.org)
 - [Lombok](https://projectlombok.org/)
     * For IntelliJ [Lombok IntelliJ Plugin] (https://plugins.jetbrains.com/plugin/6317-lombok)
