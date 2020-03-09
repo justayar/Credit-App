@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 public class CreditApplication {
 
     private String identityNumber;
-    private boolean isApplicationSuccessful;
+    private String applicationStatus;
     private double creditLimit;
     private Timestamp lastApplicationResultDate;
 
@@ -25,12 +25,12 @@ public class CreditApplication {
         this.identityNumber = identityNumber;
     }
 
-    public boolean isApplicationSuccessful() {
-        return isApplicationSuccessful;
+    public String getApplicationStatus() {
+        return applicationStatus;
     }
 
-    public void setApplicationSuccessful(boolean applicationSuccessful) {
-        isApplicationSuccessful = applicationSuccessful;
+    public void setApplicationStatus(String applicationStatus) {
+        this.applicationStatus = applicationStatus;
     }
 
     public double getCreditLimit() {
@@ -51,6 +51,6 @@ public class CreditApplication {
 
     @Override
     public String toString(){
-        return "{ identityNumber: "+identityNumber+" isApplicationSuccessful: "+isApplicationSuccessful+" creditLimit: "+creditLimit+" lastApplicationResultDate: "+lastApplicationResultDate;
+        return "{ identityNumber: "+identityNumber+" applicationStatus: "+applicationStatus+" creditLimit: "+creditLimit+" lastApplicationResultDate: "+lastApplicationResultDate;
     }
 }

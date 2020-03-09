@@ -49,11 +49,11 @@ public class CreditApplicationServiceHandler {
         CreditApplicationServiceOutputBean creditApplicationServiceOutputBean = new CreditApplicationServiceOutputBean();
 
         if(creditScore < CreditApplicationConstants.UPPER_LIMIT_CREDIT_SCORE_FOR_HIGH_RISK){
-            creditApplicationServiceOutputBean.setCreditApplicationSuccessful(false);
+            creditApplicationServiceOutputBean.setApplicationStatus("Rejected");
         }else if(creditScore < CreditApplicationConstants.UPPER_LIMIT_CREDIT_SCORE_FOR_MEDIUM_RISK){
             handleMediumRiskLevelCreditApplication(creditApplicationServiceInputBean, creditApplicationServiceOutputBean);
         }else{
-            creditApplicationServiceOutputBean.setCreditApplicationSuccessful(true);
+            creditApplicationServiceOutputBean.setApplicationStatus("Accepted");
             creditApplicationServiceOutputBean.setAppliedCreditLimit(creditApplicationServiceInputBean.getMonthlyIncome()*CreditApplicationConstants.CREDIT_LIMIT_MULTIPLIER);
         }
 
@@ -63,10 +63,10 @@ public class CreditApplicationServiceHandler {
 
     private void handleMediumRiskLevelCreditApplication(CreditApplicationServiceInputBean creditApplicationServiceInputBean, CreditApplicationServiceOutputBean creditApplicationServiceOutputBean) {
         if(creditApplicationServiceInputBean.getMonthlyIncome() < CreditApplicationConstants.MIN_MONTHLY_INCOME_LIMIT_FOR_CREDIT){
-            creditApplicationServiceOutputBean.setCreditApplicationSuccessful(true);
+            creditApplicationServiceOutputBean.setApplicationStatus("Accepted");
             creditApplicationServiceOutputBean.setAppliedCreditLimit(CreditApplicationConstants.APPLIED_CREDIT_LIMIT_FOR_MEDIUM_RISK);
         }else{
-            creditApplicationServiceOutputBean.setCreditApplicationSuccessful(false);
+            creditApplicationServiceOutputBean.setApplicationStatus("Rejected");
         }
     }
 

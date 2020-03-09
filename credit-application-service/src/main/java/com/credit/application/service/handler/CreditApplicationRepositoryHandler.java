@@ -7,6 +7,7 @@ import com.credit.application.service.formbean.CreditApplicationServiceOutputBea
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Component;
 
 import java.sql.Timestamp;
@@ -26,7 +27,7 @@ public class CreditApplicationRepositoryHandler {
         logger.info("[(saveCreditApplicationToRepository()] Credit Application will be stored to repository with output params CreditApplicationServiceOutputBean: {}", creditApplicationServiceOutputBean);
 
         CreditApplication creditApplication = new CreditApplication();
-        creditApplication.setApplicationSuccessful(creditApplicationServiceOutputBean.isCreditApplicationSuccessful());
+        creditApplication.setApplicationStatus(creditApplicationServiceOutputBean.getApplicationStatus());
         creditApplication.setCreditLimit(creditApplicationServiceOutputBean.getAppliedCreditLimit());
         creditApplication.setIdentityNumber(creditApplicationServiceInputBean.getIdentityNumber());
         creditApplication.setLastApplicationResultDate(new Timestamp(new Date().getTime()));
@@ -42,17 +43,26 @@ public class CreditApplicationRepositoryHandler {
     public CreditApplicationServiceOutputBean getCreditApplicationResultFromRepository(String identityNumber){
 
         logger.info("[(getCreditApplicationResultFromRepository()] Credit Application View will be got from repository for identityNumber: {}", identityNumber);
-
-        CreditApplication creditApplication = creditApplicationRepository.findLastApplicationByIdentityNumber(identityNumber);
-
-        logger.info("[(getCreditApplicationResultFromRepository()] Credit Application View got from repository successfully. Response is: {}", creditApplication);
-
         CreditApplicationServiceOutputBean creditApplicationServiceOutputBean = new CreditApplicationServiceOutputBean();
-        creditApplicationServiceOutputBean.setAppliedCreditLimit(creditApplication.getCreditLimit());
-        creditApplicationServiceOutputBean.setCreditApplicationSuccessful(creditApplication.isApplicationSuccessful());
 
-        logger.info("[(getCreditApplicationResultFromRepository()] Credit Application View got from repository called successfully.");
+        try{
+
+            CreditApplication creditApplication = creditApplicationRepository.findLastApplicationByIdentityNumber(identityNumber);
+
+            logger.info("[(getCreditApplicationResultFromRepository()] Credit Application View got from repository successfully. Response is: {}", creditApplication);
+
+            creditApplicationServiceOutputBean.setAppliedCreditLimit(creditApplication.getCreditLimit());
+            creditApplicationServiceOutputBean.setApplicationStatus(creditApplication.getApplicationStatus());
+
+            logger.info("[(getCreditApplicationResultFromRepository()] Credit Application View got from repository called successfully.");
+
+        }catch(EmptyResultDataAccessException ex){
+            logger.info("[(getCreditApplicationResultFromRepository()] There is no any credit application exist for identityNumber: {}",identityNumber);
+            creditApplicationServiceOutputBean.setApplicationStatus("Not Applied");
+        }
 
         return creditApplicationServiceOutputBean;
+
+
     }
 }

@@ -19,9 +19,9 @@ public class CreditApplicationRepository {
         jdbcTemplate = new JdbcTemplate(dataSource);
 
         return jdbcTemplate.update(
-                "INSERT INTO CreditApplication (identityNumber, isApplicationSuccessful,creditLimit,lastApplicationResultDate) VALUES(?,?,?,?)",
+                "INSERT INTO CreditApplication (identityNumber, applicationStatus,creditLimit,lastApplicationResultDate) VALUES(?,?,?,?)",
                 creditApplication.getIdentityNumber(),
-                creditApplication.isApplicationSuccessful(),
+                creditApplication.getApplicationStatus(),
                 creditApplication.getCreditLimit(),
                 creditApplication.getLastApplicationResultDate());
 
@@ -37,7 +37,7 @@ public class CreditApplicationRepository {
                 (rs, rowNum) ->
                         new CreditApplication(
                                 rs.getString("identityNumber"),
-                                rs.getBoolean("isApplicationSuccessful"),
+                                rs.getString("applicationStatus"),
                                 rs.getDouble("creditLimit"),
                                 rs.getTimestamp("lastApplicationResultDate")
                         ));

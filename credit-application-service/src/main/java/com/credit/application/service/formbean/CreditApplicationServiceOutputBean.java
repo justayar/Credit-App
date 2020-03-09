@@ -5,11 +5,11 @@ import lombok.Data;
 @Data
 public class CreditApplicationServiceOutputBean {
 
-    private boolean isCreditApplicationSuccessful;
+    private String applicationStatus;
     private double appliedCreditLimit;
 
     @Override
     public String toString(){
-        return "{ isCreditApplicationSuccessful: "+isCreditApplicationSuccessful+" appliedCreditLimit: "+appliedCreditLimit;
+        return "{ applicationStatus: "+applicationStatus+" appliedCreditLimit: "+appliedCreditLimit;
     }
 }
