@@ -24,14 +24,12 @@ For Twilio sms service, you have to sign up [Twilio](https://www.twilio.com)
       ```
  For mysql database integration, you have to add below mysql command on your local mysql server.
        
-       ```java
-       
+       ```sql
         CREATE TABLE "CreditApplication" (
         "identityNumber" varchar(180) NOT NULL,
         "applicationStatus" varchar(120) NOT NULL,
         "creditLimit" decimal(10,2) NOT NULL,
         "lastApplicationResultDate" datetime NOT NULL
         ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
        ```
       
