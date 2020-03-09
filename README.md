@@ -41,6 +41,9 @@ For Twilio sms service, you have to sign up [Twilio](https://www.twilio.com)
         'lastApplicationResultDate' datetime NOT NULL
         )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
         
+        
+ ## Running application
+        
  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cd0995a05baa322ee550)
        
       
