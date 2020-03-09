@@ -24,7 +24,7 @@ For Twilio sms service, you have to sign up [Twilio](https://www.twilio.com)
       ```
  For mysql database integration, you have to add below mysql command on your local mysql server.
        
-       ```sql
+       ```
         CREATE TABLE "CreditApplication" (
         'identityNumber' varchar(180) NOT NULL,
         'applicationStatus' varchar(120) NOT NULL,
