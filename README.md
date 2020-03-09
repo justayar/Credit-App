@@ -22,14 +22,15 @@ For Twilio sms service, you have to sign up [Twilio](https://www.twilio.com)
        public static final String TWILIO_SMS_AUTH_TOKEN = "*******";
        public static final String TWILIO_PHONE_NUMBER = "******";
       ```
- For mysql database integration, you have to add below mysql command on your local mysql server.
+ For mysql database integration,
  
   - You have to create user in your local server with as below:
   
          spring.datasource.url=jdbc:mysql://localhost:3306/credit
          spring.datasource.username=test
          spring.datasource.password=Test1234
-
+ 
+   - You have to run following command in your local mysql server:
        
         CREATE DATABASE `credit` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT E             ENCRYPTION='N' */;
 
