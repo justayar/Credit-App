@@ -34,4 +34,6 @@ For Twilio sms service, you have to sign up [Twilio](https://www.twilio.com)
         'lastApplicationResultDate' datetime NOT NULL
         )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
        ```
+       
+     - You have to create user with name: test and password: Test1234
       
