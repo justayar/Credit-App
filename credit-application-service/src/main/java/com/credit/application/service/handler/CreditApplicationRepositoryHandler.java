@@ -34,9 +34,16 @@ public class CreditApplicationRepositoryHandler {
 
         logger.info("[(saveCreditApplicationToRepository()] Credit Application will be stored to repository with repository params CreditApplication: {}", creditApplication);
 
-        creditApplicationRepository.saveApplication(creditApplication);
+        int saveResult = creditApplicationRepository.saveApplication(creditApplication);
 
-        logger.info("[(saveCreditApplicationToRepository()] Credit Application store to repository called successfully");
+        if(saveResult == 1){
+            logger.info("[(saveCreditApplicationToRepository()] Credit Application store to repository called successfully");
+
+        }else{
+            logger.error("[(saveCreditApplicationToRepository()] Credit Application store to repository got exception.");
+
+        }
+
 
     }
 
