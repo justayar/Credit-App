@@ -10,8 +10,8 @@ public class CreditApplicationConstants {
     public static final double UPPER_LIMIT_CREDIT_SCORE_FOR_MEDIUM_RISK = 1000;
     public static final double APPLIED_CREDIT_LIMIT_FOR_MEDIUM_RISK = 10000;
 
-    public static final String TWILIO_SMS_ACCOUNT_ID = "ACca2afe41b7509fc9fa8c035bb2ea13cf";
-    public static final String TWILIO_SMS_AUTH_TOKEN = "efb15048e114ae50cd1ccfdbaac3d392";
-    public static final String TWILIO_PHONE_NUMBER = "+12065370249";
+    public static final String TWILIO_SMS_ACCOUNT_ID = "******";
+    public static final String TWILIO_SMS_AUTH_TOKEN = "******";
+    public static final String TWILIO_PHONE_NUMBER = "*****";
 
 }
