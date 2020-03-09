@@ -20,12 +20,12 @@ public class CreditAppController {
 
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
+    private Random randomGenerator = new Random();
+
     @GetMapping(value = "/getCreditScore")
     public CreditScoreOutputBean getCreditScore(@RequestParam String identityNumber) {
 
         logger.info("[(getCreditScore()] Credit Score handler called with IdentityNumber: {}",identityNumber);
-
-        Random randomGenerator = new Random();
 
         int randomCreditScore = randomGenerator.nextInt((ApplicationConstants.MAX_CREDIT_SCORE - ApplicationConstants.MIN_CREDIT_SCORE) + 1) + ApplicationConstants.MIN_CREDIT_SCORE;
 
