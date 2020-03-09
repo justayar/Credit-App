@@ -21,6 +21,9 @@ public class CreditApplicationServiceHandler {
     @Autowired
     private CreditApplicationRepositoryHandler creditApplicationRepositoryHandler;
 
+    @Autowired
+    private CreditApplicationSmsHandler creditApplicationSmsHandler;
+
     private final Logger logger = LoggerFactory.getLogger(getClass());
 
 
@@ -35,6 +38,8 @@ public class CreditApplicationServiceHandler {
             CreditApplicationServiceOutputBean creditApplicationServiceOutputBean = evaluateCreditApplication(creditApplicationServiceInputBean, creditScore.getCreditScore());
 
             creditApplicationRepositoryHandler.saveCreditApplicationToRepository(creditApplicationServiceInputBean,creditApplicationServiceOutputBean);
+
+            creditApplicationSmsHandler.sendSmsNotificationToCustomer(creditApplicationServiceInputBean,creditApplicationServiceOutputBean);
 
             return creditApplicationServiceOutputBean;
 
