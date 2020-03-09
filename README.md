@@ -43,6 +43,12 @@ For Twilio sms service, you have to sign up [Twilio](https://www.twilio.com)
         
         
  ## Running application
+ 
+  - Firstly, you have to run credit-score-service by running CreditScoreApplicationService file on port 8080.
+  
+  - Then, you have to run credit-application-service by running CreditApplicationServiceApplication file on port 8081
+  
+  - After two service runned succesfully, you can use below postman commands to call endpoints.
         
  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cd0995a05baa322ee550)
        
