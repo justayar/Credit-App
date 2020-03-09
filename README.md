@@ -30,7 +30,7 @@ For Twilio sms service, you have to sign up [Twilio](https://www.twilio.com)
          spring.datasource.username=test
          spring.datasource.password=Test1234
  
-   - You have to run following command in your local mysql server:
+  - You have to run following command in your local mysql server:
        
         CREATE DATABASE `credit` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT E             ENCRYPTION='N' */;
 
