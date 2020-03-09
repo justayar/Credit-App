@@ -11,6 +11,7 @@ For building and running the application you need:
 - [Lombok](https://projectlombok.org/)
     * For IntelliJ [Lombok IntelliJ Plugin] (https://plugins.jetbrains.com/plugin/6317-lombok)
     * For Eclipse [Lombok Eclipse] (https://projectlombok.org/downloads/lombok.jar)
+-[Mysql](https://dev.mysql.com/downloads/mysql/)
     
 For Twilio sms service, you have to sign up [Twilio](https://www.twilio.com)
 
